@@ -1,0 +1,15 @@
+{
+    "data": [
+        {
+            "incident:id": "testeo",
+            "incidents": [
+                {
+                    "event_id": "test_value",
+                    "context": "car_plate",
+                    "metadata": "HOLAMUNDO",
+                    "timestamp": 1713590588888
+                }
+            ]
+        }
+    ]
+}
