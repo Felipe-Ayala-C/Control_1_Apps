@@ -7,6 +7,6 @@ const router = new Router()
 router.get('/health', getHealth)
 
 router.get('/api/eventget', getEvents)
-router.post('/api/event', addEvent)
+router.post('/api/event/:eventId', addEvent)
 
 export default router

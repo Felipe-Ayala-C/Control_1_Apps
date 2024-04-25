@@ -2,7 +2,7 @@
 import { readJsonFile, writeJsonFile }  from '../actions/car_plates.js'
 
 
-exports.addEvent = async (ctx) => {
+exports.addEvent = async (ctx, req) => {
     try {
         const requestData = ctx.request.body;
         const products = readJsonFile(); // Call the function to read the JSON file
@@ -13,12 +13,20 @@ exports.addEvent = async (ctx) => {
             ctx.status = 400;
             ctx.body = (mes_error);
         }else{
+   /*         for (const entry of products) {
+                const timestamp = new Date(entry.timestamp); // Assuming 'timestamp' is the property name
+                const minute = timestamp.getMinutes();
+              
+                if ( (minute <= req && entry.metadata == products.metadata) || (minute > req && entry.metadata != products.metadata)) {
+                    
+                }
+            } */
             const newProduct = {
-            event_id: dataArray.lenght + 1,
-            context: requestData.context,
-            metadata: requestData.metadata,
-            timestamp: requestData.timestamp
-        };
+                event_id: dataArray.lenght + 1,
+                context: requestData.context,
+                metadata: requestData.metadata,
+                timestamp: requestData.timestamp
+            };
         dataArray.push(newProduct);
         writeJsonFile(dataArray); // Assuming writeJsonFile writes the array
 
